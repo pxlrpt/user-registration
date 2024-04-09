@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.violet.min.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
+    <title>{{.PageTitle}}</title>
+
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                {{if not .IsLoggedIn}}
+                <li>
+                    <a href="/">Register</a>
+                </li>
+                {{else}}
+                <li><a href="/logout">Sign Out</a></li>
+                {{end}}
+            </ul>
+            <ul>
+                {{if not .IsLoggedIn}}
+                <li><a href="/login">Login</a></li>
+                {{else}}
+                <li><a href="/dashboard">Home</a></li>
+                {{end}}
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>{{.PageName}}</h1>
+        <section class="main">
+            {{.Main}}
+        </section>
+    </main>
+    
+</body>
+
+</html>

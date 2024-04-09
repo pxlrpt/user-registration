@@ -1,0 +1,27 @@
+<form method="POST" action="/register">
+    <fieldset class="grid">
+        <input type="text" name="user" id="user" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="submit" value="Register">
+    </fieldset>
+</form>
+<div class="registered-users">
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Username</td>
+                <td>Password</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}} <!-- Iterating over the slice of users passed to the template -->
+            <tr>
+                <td>{{.ID}}</td> <!-- Access fields of the current struct -->
+                <td>{{.Username}}</td>
+                <td>{{.Password}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
